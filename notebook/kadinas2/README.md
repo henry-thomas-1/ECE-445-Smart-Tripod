@@ -29,26 +29,26 @@ We will be moving forward with a 7.4V battery, and step down to 5V and then to 3
 ## 2025 - 02 - 25
 Started working on both the controller PCB and the motorized tripod PCB. I'm going to be handing over the controller PCB to Henry Thomas, since he's working more with the Rapsberry Pi, and understands the pinouts he will need for the first round order. So far I need to look into how to flash the ESP32-S3. I don't know if we need a UART bridge IC, which may be hard to find in a hand solderable IC platform. The circuit schematic for the . The 3.3uH capacitor was selected from the recommended IC sheets. It would likely cause a longer startup time, from switch to activation, but the higher inductance will help reduce coupled noise at lower load power consumptions. I also went with higher resistor values, 10k and 33k to get close to the 3.3V that we're trying to achieve. It may not be a major issue, and so far I'm only focusing on designing the 3.3V buck circuit, as the 5V circuit is designed in a similar manner, so it will be easy to transfer and switch resistor values. Below is the current 3.3V design.  
 
-![image](../images/33V_initial_design.jpg)
+![image](/images/33V_initial_design.jpg)
 
 ## 2025 - 03 - 02
 Finished the first round PCB orders. The current PCB design can be seen below. The buck ICs are expected to arrive in a day or two, so I'm going to put my focus into designing the breadboard circuit to test it. Henry and I did end up figuring out how to flash, and it doesn't require, supposedly the ESP32-S3 has a built in SPI flash, so we won't need to have USB to UART bridge or USB to SPI bridge. The differential pair of the MicroUSB can be connected straight to the ESP32-S3.  
 
 Currently, Henry and I are testing different circuit schematics. I'm unsure of if we're going to be able to run power through a switch, as I'm concerned about power loss. I also want to integrate the same 5V plane, so you're able to use the motorized tripod while it's being plugged in, so I've added reverse polarized Schottky diodes at the MicroUSB and 5V buck converter, so we don't get back current through either the IC or the MicroUSB. I've also added additional Schottkys as flybacks for the servo motors, as I'm unsure of if the servos will have built in schottkys. Best case scenario, is we won't need to include the Schottkys.  
 
-![image](../images/tripod_pcb_original.jpg)
+![image](/images/tripod_pcb_original.jpg)
 
 ## 2025 - 03 - 07
 This past week we've been working on the team evaluations and the design document. I've been working on soldering the buck IC as well, a photo of which can be seen below for the breadboard demo. I'm expecting that there will be a lot of various coupling mechanisms so filtering noise out won't be very efficient, or I may find that the breadboard circuit experiences way higher noise than expected. The IC of the TPS562201 can be seen below.
 
-![image](../images/soldering_buck_ic.jpg)
+![image](/images/soldering_buck_ic.jpg)
 
 ## 2025 - 03 - 09
 I finally got the breadboarded circuit working. The buck IC is not solder in the best way, which makes it difficult to ensure that I don't blow the IC, or to ensure that I don't break off the wires coming off the middle pins of the IC. The breaboarded circuit and it's components can be seen below, along with poor image of the output signal. It looks like I'm experiencing 400 mV peak to peak which is way outside of the requirements. It also appears that the buck IC voltage output is not as accurate as specified by the data sheet, so I may need to look into ways to tune the resistance in the final design.  
 
-![image](../images/breaboard_design.jpg)
+![image](/images/breaboard_design.jpg)
   
-![image](../images/breadboard_output.jpg)
+![image](/images/breadboard_output.jpg)
 
 It's good enough for a breadboard demo, as it shows proof of concept, but I'm going to need to work on figuring out ways to filter that noise at the switching frequency. I knew that it would be an issue, but not as apparent as it ended up being. I'm hoping that the PCB attenuates some of the couple noise and any external noise that is present, as the wires are currently acting like antennas coupling to themselves.
 
@@ -62,7 +62,7 @@ I've been focusing on the third round designs and working with the tripod PCB po
 
 This time I added 100nF filter capacitors at the servo motor outputs with larger 8x12 electrolytic capacitor positions, for adding capacitors later, if we should need more filtering on our voltage lines near the servo motors. I also added a small resistor network into the buck converter outputs, to allow us to tune them. A total of 3 in parallel with two more in series of that, shown in the image below.  
 
-  ![image](../images/final_buck_sch.png)
+  ![image](/images/final_buck_sch.png)
   
 We've also decided to add two linear regulators. the [AZ1117-3.3](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/835/AZ1117_Rev5.3_Jan2019_DS.pdf)
 and the [MIC29300-5.0WU-TR](https://ww1.microchip.com/downloads/en/DeviceDoc/MIC2915x-30x-50x-75x-High-Current-Low-Dropout-Regulators-DS20005685B.pdf). These are a 3.3V 1A LDO and a 5V 3A LDO respectively. These will be going on the outputs of our buck converters to help regulate the voltage. We did test the buck converter with the AZ1117-3.3 today, and we found it to have roughly a 40mV peak to peak noise, which is well within our margins, so moving forward with an LDO is the easiest option. 
@@ -77,13 +77,13 @@ We got out parts back from the machine shop, and have enough to work with to pro
 ## 2025 - 04 - 20
 We got our new servos, and the breadboarded design working. I had to adjust the bracket slighlty on the phone mount, which can be seen below. Besides that we're still just waiting on fourth round orders to come in, which should be sometime this week. So far, the controller PCB does work, and should be at least something to show during the mock demo.
 
-![image](../images/motor_mount.jpg)
+![image](/images/motor_mount.jpg)
 
 ## 2025 - 04 - 27
-I haven't been able to work on the design very much this week, but I was told by Henry and Miguel that the project went together a lot smoother than we anticipated. There were a few blown capacitors, for reasons unknown, but it looks like our design has met all the high level requirements we set forth. We just need to start working on documentation for our design. Since our design works, I'll be posting the additional pictures of my finalized PCBs below and will close out the document unless further design changes arrive over the next few days. PCB files should be found [here](../kicad/Group_29_Handheld)
+I haven't been able to work on the design very much this week, but I was told by Henry and Miguel that the project went together a lot smoother than we anticipated. There were a few blown capacitors, for reasons unknown, but it looks like our design has met all the high level requirements we set forth. We just need to start working on documentation for our design. Since our design works, I'll be posting the additional pictures of my finalized PCBs below and will close out the document unless further design changes arrive over the next few days. PCB files should be found [here](/kicad/Group_29_Handheld)
 
-![image](../images/final_sch.png)
+![image](/images/final_sch.png)
 
-![image](../images/tripod_pcb_final.jpg)
+![image](/images/tripod_pcb_final.jpg)
 
 
