@@ -36,5 +36,12 @@ Testing & Debugging
 Latency Testing: Measure command execution delays via timestamp logging.
 Network Performance: Assess WebSocket stability and Wi-Fi signal strength.
 Motor Accuracy: Use iPhone gyroscope data to validate tracking precision.
-License
+License  
+The final overall design image are shown below:  
+![image](/images/motorized_tripod.jpg)
+
+![image](/images/controller.jpg)
+  
+
 This project is licensed under the MIT License. See the LICENSE file for details.
+
