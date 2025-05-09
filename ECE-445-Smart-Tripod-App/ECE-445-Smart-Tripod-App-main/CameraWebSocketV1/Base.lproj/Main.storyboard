@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23720"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CameraWebSocketV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-9F-Vr2" userLabel="Camera Preview">
+                                <rect key="frame" x="-59" y="0.0" width="452" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocq-JK-NbH">
+                                <rect key="frame" x="321.66666666666669" y="416" width="51.333333333333314" height="20"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latency Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-FE-Ojn">
+                                <rect key="frame" x="50" y="318" width="153.66666666666666" height="20"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-KA-YSv">
+                                <rect key="frame" x="-200" y="518" width="506.66666666666669" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G16-7J-1Zr">
+                                        <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Zoom Out">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleZoomOutWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jai-8X-4o8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chQ-LM-znd">
+                                        <rect key="frame" x="132.66666666666669" y="0.0" width="108.66666666666669" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Take Photo">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="capturePhotoWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xLO-ww-VOc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hU-Z7-68P">
+                                        <rect key="frame" x="265.33333333333331" y="0.0" width="108.66666666666669" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Zoom in">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleZoomIn_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tcn-aU-aai"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qc-Be-lfx">
+                                        <rect key="frame" x="398" y="0.0" width="108.66666666666669" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Record">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="videoRecordTappedWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qFA-Nm-tkL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXp-hH-Llv" userLabel="flashView">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="Y8w-bq-8gj">
+                                <rect key="frame" x="0.0" y="0.0" width="449" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VLn-3s-rZD">
+                                    <rect key="frame" x="0.0" y="0.0" width="449" height="852"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting to WebSocket..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83t-dM-G7W">
+                                            <rect key="frame" x="78" y="175" width="266.33333333333331" height="20"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYm-MS-IL3">
+                                            <rect key="frame" x="183" y="203" width="57" height="34.333333333333314"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Skip">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </backgroundConfiguration>
+                                                <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="skipButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xAv-00-74s"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="83t-dM-G7W" firstAttribute="leading" secondItem="VLn-3s-rZD" secondAttribute="leading" constant="78" id="5Rw-WG-Nwa"/>
+                                        <constraint firstItem="fYm-MS-IL3" firstAttribute="top" secondItem="83t-dM-G7W" secondAttribute="bottom" constant="8" id="CfV-UF-XeT"/>
+                                        <constraint firstItem="83t-dM-G7W" firstAttribute="top" secondItem="VLn-3s-rZD" secondAttribute="top" constant="175" id="XaQ-m5-diI"/>
+                                        <constraint firstItem="83t-dM-G7W" firstAttribute="centerX" secondItem="fYm-MS-IL3" secondAttribute="centerX" id="qnk-QX-6Ky"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9zc-9F-Vr2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-59" id="1Qi-83-kHZ"/>
+                            <constraint firstItem="Mbm-FE-Ojn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="AZj-aN-u9s"/>
+                            <constraint firstItem="UXp-hH-Llv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BTh-X9-eM0"/>
+                            <constraint firstItem="Mbm-FE-Ojn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Dnv-io-GmJ"/>
+                            <constraint firstItem="UXp-hH-Llv" firstAttribute="trailing" secondItem="9zc-9F-Vr2" secondAttribute="trailing" id="Hwh-A8-H1E"/>
+                            <constraint firstItem="Faq-KA-YSv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-200" id="MVi-fi-wvd"/>
+                            <constraint firstItem="UXp-hH-Llv" firstAttribute="top" secondItem="9zc-9F-Vr2" secondAttribute="top" id="PIp-r1-Fez"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ocq-JK-NbH" secondAttribute="trailing" constant="20" id="PuO-Ye-Xlk"/>
+                            <constraint firstItem="UXp-hH-Llv" firstAttribute="bottom" secondItem="9zc-9F-Vr2" secondAttribute="bottom" id="R2e-0a-qrt"/>
+                            <constraint firstItem="ocq-JK-NbH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iKs-9I-bdZ"/>
+                            <constraint firstItem="9zc-9F-Vr2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pvf-7H-dP0"/>
+                            <constraint firstItem="Faq-KA-YSv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="400" id="seh-El-ZFG"/>
+                            <constraint firstAttribute="trailing" secondItem="9zc-9F-Vr2" secondAttribute="trailing" id="tCR-gB-ZXq"/>
+                            <constraint firstAttribute="bottom" secondItem="9zc-9F-Vr2" secondAttribute="bottom" id="v9h-B2-jAb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonStackView" destination="Faq-KA-YSv" id="1Kt-vs-Grm"/>
+                        <outlet property="cameraPreviewView" destination="9zc-9F-Vr2" id="iFj-N4-Q1J"/>
+                        <outlet property="commandStatusLabel" destination="Mbm-FE-Ojn" id="cjp-wf-5qu"/>
+                        <outlet property="connectionOverlayView" destination="Y8w-bq-8gj" id="753-Mm-Vq8"/>
+                        <outlet property="connectionStatusLabel" destination="83t-dM-G7W" id="D18-Vh-6JH"/>
+                        <outlet property="flashView" destination="UXp-hH-Llv" id="BKN-5D-4qm"/>
+                        <outlet property="recordButton" destination="1qc-Be-lfx" id="RQI-sz-vMQ"/>
+                        <outlet property="recordingTimerLabel" destination="ocq-JK-NbH" id="d4h-zL-aQh"/>
+                        <outlet property="skipButton" destination="fYm-MS-IL3" id="rvn-v0-V5S"/>
+                        <outlet property="timer" destination="ocq-JK-NbH" id="xFQ-0A-Vb3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.42748091603053" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
